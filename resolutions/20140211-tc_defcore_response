@@ -23,6 +23,33 @@ objective answer. However, deciding which, amongst those areas, constitute a
 required use is more subjective and depends on the stakeholders we want to
 best serve.
 
+The Technical Committee warns that we are unlikely to reach a consensus
+position in a time that is reasonable for the Icehouse release. Additionally,
+we believe we would have the following further policy questions for the board:
+
+* how granular and specific does the board want this to be? How do we handle
+  drift in the code over time from operations such as refactoring? How do we
+  identify designated sections -- both line numbers and cryptographic hashes
+  of the lines of code have been proposed, but both methods are flawed.
+
+* how limiting should it be? For example, are backports from master of fixes or
+  features to the designated areas allowed?
+
+* many parts of OpenStack are pluggable in ways that do not replace designated
+  sections and are not alternate implementations of a plugin interface - for
+  example you can add new WSGI middlewares or scheduler filters - how much of
+  this extensibility does the board wish to allow?
+
+* altering libraries (3rd party, or part of OpenStack itself) can have as much
+  impact on behaviour as altering OpenStack services itself. Is there a desire
+  to address this?
+
+* at some point, these sorts of requirements, and the desire to force people
+  to engage upstream, seem confusingly at conflict with our "business friendly"
+  choice of a permissive license (i.e. the Apache License vs, say, the AGPL).
+  How does the board reconcile the use of an extremely permissive software
+  license with an extremely restrictive trademark license?
+
 There are a variety of stake holders in this discussion, and it is hard to
 balance the requirements of those stake holders in the requirements definition
 process.
@@ -66,37 +93,6 @@ compliant OpenStack should pass for this release. We can then iterate in future
 releases to extend the requirements for trademark licensing to cover the
 needs of additional stake holder groups. The Technical Committee suggests that
 tempest is the right vehicle to implement these interoperability tests.
-
-It should be noted that there is no concensus among the members of the
-Technical Committee at this time about how to best drive collaboration on the
-upstream OpenStack code. If the Board feels it is important to address this
-issue by defining what sections of the OpenStack code are "defined sections",
-the Technical Committee warns that we are unlikely to reach a consensus
-position in a time that is reasonable for the Icehouse release. Additionally,
-we believe we would have the following further policy questions for the board:
-
-* how granular and specific does the board want this to be? How do we handle
-  drift in the code over time from operations such as refactoring? How do we
-  identify designated sections -- both line numbers and cryptographic hashes
-  of the lines of code have been proposed, but both methods are flawed.
-
-* how limiting should it be? For example, are backports from master of fixes or
-  features to the designated areas allowed?
-
-* many parts of OpenStack are pluggable in ways that do not replace designated
-  sections and are not alternate implementations of a plugin interface - for
-  example you can add new WSGI middlewares or scheduler filters - how much of
-  this extensibility does the board wish to allow?
-
-* altering libraries (3rd party, or part of OpenStack itself) can have as much
-  impact on behaviour as altering OpenStack services itself. Is there a desire
-  to address this?
-
-* at some point, these sorts of requirements, and the desire to force people
-  to engage upstream, seem confusingly at conflict with our "business friendly"
-  choice of a permissive license (i.e. the Apache License vs, say, the AGPL).
-  How does the board reconcile the use of an extremely permissive software
-  license with an extremely restrictive trademark license?
 
 In summary, the Technical Committee proposes a focus on black box API
 interoperability testing for the Icehouse release.
